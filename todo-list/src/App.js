@@ -1,12 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './Navbar';
 import TodoList from './TodoList';
+import Create from './Create';
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <TodoList />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<TodoList />} />
+        <Route path="/create" element={<Create />} />
+      </Routes>
     </div>
+    
   );
 }
 
