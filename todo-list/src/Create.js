@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +16,7 @@ const Create = () => {
       body: JSON.stringify(task)
     }).then(() => {
       console.log('new task added');
+      navigate('/');
     })
   }
 

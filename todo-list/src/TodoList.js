@@ -6,10 +6,10 @@ const TodoList  = () => {
 
     return ( 
         <div className="TodoList">
-            <h1>List of Tasks</h1>
+            <h2>List of Tasks</h2>
             {tasks && tasks.map((task) => (
                 <div key={task.id}>
-                    <h2>{task.name}</h2>
+                    <h3>{task.id}. {task.name}</h3>
                     <p>{task.description}</p>
                 </div>
             ))}
