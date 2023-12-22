@@ -52,6 +52,9 @@
 .Todo-preview a{
   text-decoration: none;
 }
+.edit-button {
+  padding: 10px;
+}
 
 /* create new Todo form */
 .create {
@@ -77,6 +80,38 @@
   display: block;
 }
 .create button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* edit existing Todo form */
+.edit {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.edit label {
+  text-align: left;
+  display: block;
+}
+.edit h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.edit input, .edit textarea, .edit select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.edit button {
   background: #f1356d;
   color: #fff;
   border: 0;
