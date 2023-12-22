@@ -8,7 +8,7 @@ const TodoList  = () => {
         <div className="TodoList">
             <h2>List of Tasks</h2>
             {tasks && tasks.map((task) => (
-                <div key={task.id}>
+                <div className = "Todo-preview" key={task.id}>
                     <h3>{task.id}. {task.name}</h3>
                     <p>{task.description}</p>
                 </div>
