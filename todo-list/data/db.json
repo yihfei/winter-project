@@ -1,24 +1,19 @@
 {
   "tasks": [
     {
-      "name": "fodfjglskdfg",
-      "description": "kjhkjsd",
+      "name": "task 1",
+      "description": "desc 1\n",
       "id": 1
     },
     {
-      "name": "brush teeth",
-      "description": "use new toothpaste",
+      "name": "task 2",
+      "description": "desc 2\n",
       "id": 2
     },
     {
-      "name": "sleep",
-      "description": "use new pillowcase",
+      "name": "task 3",
+      "description": "desc 3",
       "id": 3
-    },
-    {
-      "name": "Your mom",
-      "description": "dpopo",
-      "id": 4
     }
   ]
 }

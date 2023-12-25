@@ -3,7 +3,23 @@ import { Link } from "react-router-dom";
 
 const TodoList = () => {
 
-    const { data: tasks, isPending, error } = useFetch('http://localhost:3030/tasks');
+    const { data: tasks, isPending, error, setData: setTasks } = useFetch('http://localhost:3030/tasks');
+
+    
+
+    const handleClick = async (id) => {
+        try {
+            await fetch('http://localhost:3030/tasks/' + id, {
+                method: 'DELETE'
+            });
+
+            // Update the task list by refetching the data
+            const updatedTasks = await fetch('http://localhost:3030/tasks').then(response => response.json());
+            setTasks(updatedTasks);
+        } catch (error) {
+            console.error('Error deleting task:', error);
+        }
+    };
 
     return (
         <div className="TodoList">
@@ -20,6 +36,11 @@ const TodoList = () => {
                                 borderRadius: '4px',
                             }}>Edit</button>
                         </Link>
+                        <button onClick={() => handleClick(task.id)} style={{
+                                color: 'white',
+                                backgroundColor: '#f1356d',
+                                borderRadius: '4px',
+                            }}>Delete</button>
                     </div>
                 </div>
             ))}
