@@ -2,31 +2,35 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
+import { Priority } from "./Priority"
+
 const Edit = () => {
     const { id } = useParams();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const [priority, setPriority] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
         // Fetch data when the component mounts
         const fetchData = async () => {
-          try {
-            const response = await fetch(`http://localhost:3030/tasks/${id}`);
-            const data = await response.json();
-            setName(data.name);
-            setDescription(data.description);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
+            try {
+                const response = await fetch(`http://localhost:3030/tasks/${id}`);
+                const data = await response.json();
+                setName(data.name);
+                setDescription(data.description);
+                setPriority(data.priority);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         };
-    
+
         fetchData();
-      }, [id]);
+    }, [id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const task = { name, description };
+        const task = { name, description, priority };
 
         fetch('http://localhost:3030/tasks/' + id, {
             method: 'PUT',
@@ -55,6 +59,11 @@ const Edit = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
+                <select value = {priority} onChange={(e) => setPriority(e.target.value)}>
+                    {Object.values(Priority).map((priority) => (
+                        <option value={priority}>{priority}</option>
+                    ))}
+                </select>
                 <button>Edit Task</button>
             </form>
         </div>

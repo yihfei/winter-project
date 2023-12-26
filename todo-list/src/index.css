@@ -55,6 +55,15 @@
 .edit-button {
   padding: 10px;
 }
+.title {
+  padding: 4px;
+}
+.priority-label {
+  padding: 3px 5px;
+  font-size: x-small;
+  font-weight: bold;
+  border-radius: 10px;
+}
 
 /* create new Todo form */
 .create {
