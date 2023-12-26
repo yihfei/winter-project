@@ -7,11 +7,12 @@ const Create = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState(Priority.LOW);
+  const isComplete = false;
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const task = { name, description, priority };
+    const task = { name, description, priority, isComplete };
 
     fetch('http://localhost:3030/tasks/', {
       method: 'POST',

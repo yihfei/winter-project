@@ -9,6 +9,7 @@ const Edit = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [priority, setPriority] = useState('');
+    const [isComplete, setIsComplete] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -20,6 +21,7 @@ const Edit = () => {
                 setName(data.name);
                 setDescription(data.description);
                 setPriority(data.priority);
+                setIsComplete(data.isComplete);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -30,7 +32,7 @@ const Edit = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const task = { name, description, priority };
+        const task = { name, description, priority, isComplete };
 
         fetch('http://localhost:3030/tasks/' + id, {
             method: 'PUT',
