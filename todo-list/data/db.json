@@ -1,19 +1,18 @@
 {
   "tasks": [
     {
-      "name": "task 1",
-      "description": "desc 1\n",
+      "name": "hello",
+      "description": "hello",
+      "priority": "Low",
+      "isComplete": true,
       "id": 1
     },
     {
-      "name": "task 2",
-      "description": "desc 2\n",
+      "name": "d",
+      "description": "d",
+      "priority": "Low",
+      "isComplete": true,
       "id": 2
-    },
-    {
-      "name": "task 3",
-      "description": "desc 3",
-      "id": 3
     }
   ]
 }

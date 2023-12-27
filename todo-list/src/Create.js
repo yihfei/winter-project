@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { Priority } from "./Priority"
+
 const Create = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [priority, setPriority] = useState(Priority.LOW);
+  const isComplete = false;
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const task = { name, description };
+    const task = { name, description, priority, isComplete };
 
     fetch('http://localhost:3030/tasks/', {
       method: 'POST',
@@ -37,6 +41,12 @@ const Create = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
+        <label>Priority:</label>
+        <select onChange={(e) => setPriority(e.target.value)}>
+          {Object.values(Priority).map((priority) => (
+            <option value={ priority }>{ priority }</option>
+          ))}
+        </select>
         <button>Add Task</button>
       </form>
     </div>
