@@ -37,9 +37,25 @@ const TodoList = () => {
         });
     }
 
+    // Function to sort tasks by priority
+    const sortByPriority = () => {
+        const sortedTasks = [...tasks].sort((a, b) => {
+        // You can customize the sorting logic based on priority levels
+        const priorityOrder = { Low: 1, Medium: 2, High: 3 };
+        return priorityOrder[a.priority] - priorityOrder[b.priority];
+        });
+
+        setTasks(sortedTasks);
+    };
+
     return (
         <div className="TodoList">
             <h2>List of Tasks</h2>
+            <button onClick={() => sortByPriority()} style={{
+                            color: 'white',
+                            backgroundColor: '#f1356d',
+                            borderRadius: '4px',
+                        }}>Sort by priority</button>
             {tasks && tasks.map((task) => (
                 <div className="Todo-preview" key={task.id}>
                     <div className="task-info" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
